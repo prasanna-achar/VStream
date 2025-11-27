@@ -14,9 +14,9 @@ spring:
     upload_dir: /uploads
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: ${UPLOAD_DB_URL}
+    username: ${UPLOAD_DB_USERNAME}
+    password: ${UPLOAD_DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
       minimum-idle: 5
@@ -39,7 +39,7 @@ spring:
       max-request-size: 100MB
 
   rabbitmq:
-    host: localhost
+    host: ${RABBITMQ_HOST:localhost}
     port: 5672
     username: guest
     password: guest

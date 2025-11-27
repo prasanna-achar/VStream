@@ -1,0 +1,90 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - youtube-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-gateway:
+    build: ./ApiGateway
+    ports:
+      - "8000:8000"
+    environment:
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost}
+      - JWT_SECRET_KEY=${JWT_SECRET}
+      - AUTH_SERVICE_URL=http://users:8010
+      - PROFILE_SERVICE_URL=http://profile:8020
+      - VIDEO_SERVICE_URL=http://upload:8030
+    networks:
+      - youtube-network
+    depends_on:
+      - users
+      - profile
+      - upload
+
+  users:
+    build: ./users
+    environment:
+      - USER_DATABASE_URL=${USERS_DB_URL}
+      - USER_DATABASE_USER=${USERS_DB_USERNAME}
+      - USER_DATABASE_PASS=${USERS_DB_PASSWORD}
+      - DATABASE_DRIVER_CLASS=org.postgresql.Driver
+      - MAILTRAP_HOST=${MAILTRAP_HOST}
+      - MAILTRAP_PORT=${MAILTRAP_PORT}
+      - MAILTRAP_USERNAME=${MAILTRAP_USERNAME}
+      - MAILTRAP_PASSWORD=${MAILTRAP_PASSWORD}
+      - MAILTRAP_PROTOCOL=${MAILTRAP_PROTOCOL}
+      - JWT_SECRET_KEY=${JWT_SECRET}
+      - FRONTEND_URL=${FRONTEND_URL}
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - youtube-network
+
+  profile:
+    build: ./profile
+    environment:
+      - PROFILE_DB_URL=${PROFILE_DB_URL}
+      - PROFILE_DB_USERNAME=${PROFILE_DB_USERNAME}
+      - PROFILE_DB_PASSWORD=${PROFILE_DB_PASSWORD}
+      - CLOUDINARY_NAME=${CLOUDINARY_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+    networks:
+      - youtube-network
+
+  upload:
+    build: ./upload
+    environment:
+      - UPLOAD_DB_URL=${UPLOAD_DB_URL}
+      - UPLOAD_DB_USERNAME=${UPLOAD_DB_USERNAME}
+      - UPLOAD_DB_PASSWORD=${UPLOAD_DB_PASSWORD}
+      - CLOUDINARY_NAME=${CLOUDINARY_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - youtube-network
+
+  frontend:
+    build: ./Frontend
+    ports:
+      - "80:80"
+    networks:
+      - youtube-network
+
+networks:
+  youtube-network:
+    driver: bridge

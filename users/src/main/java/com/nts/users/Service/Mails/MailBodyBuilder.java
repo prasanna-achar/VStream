@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class MailBodyBuilder {
 
 
-    @Value("${FRONTEND_RESET_PASSWORD_URL}")
+    @Value("${FRONTEND_URL}")
     private String frontendLink;
 
 
@@ -51,7 +51,7 @@ public class MailBodyBuilder {
     public  String buildResetPasswordEmail(String username, String token) {
         // Backend endpoint with token as path variable
 
-        String resetLink = frontendLink + token;
+        String resetLink = frontendLink + "/reset-password/"+token;
 
         return "<!DOCTYPE html>" +
                 "<html lang='en'>" +
