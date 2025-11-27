@@ -180,7 +180,7 @@ public class AuthService {
 
         Cookie cookie = new Cookie("jwt",t);
         cookie.setHttpOnly(true);
-        cookie.setSecure(true);
+        cookie.setSecure(false);
         cookie.setPath("/");
         cookie.setMaxAge(60*60*24*7);
         response.addCookie(cookie);
