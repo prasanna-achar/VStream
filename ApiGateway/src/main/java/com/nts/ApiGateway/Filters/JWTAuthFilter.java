@@ -1,6 +1,8 @@
 package com.nts.ApiGateway.Filters;
 
+import com.nts.ApiGateway.Exceptions.UnauthorizedException;
 import com.nts.ApiGateway.Utils.JWTUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -15,24 +17,33 @@ import java.util.Map;
 @Component
 public class JWTAuthFilter implements GlobalFilter, Ordered {
 
+
+
     private final JWTUtils jwtUtils;
     public JWTAuthFilter(JWTUtils jwtUtils){
         this.jwtUtils = jwtUtils;
     }
 
     @Override
-    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) throws UnauthorizedException{
         String path = exchange.getRequest().getURI().getPath();
 
         if (path.contains("/auth")) {
             return chain.filter(exchange);
         }
 
-        HttpCookie cookie = exchange.getRequest().getCookies().getFirst("jwt");
-        String token = null;
 
-        if (cookie != null) {
-            token = cookie.getValue();
+
+        String token = null;
+        try{
+            HttpCookie cookie = exchange.getRequest().getCookies().getFirst("jwt");
+            if(cookie != null){
+                token = cookie.getValue();
+            }else {
+                throw new UnauthorizedException("Unauthorized token");
+            }
+        }catch(UnauthorizedException ex){
+            throw new RuntimeException();
         }
 
 
