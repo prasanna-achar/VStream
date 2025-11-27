@@ -79,7 +79,10 @@ services:
       - youtube-network
 
   frontend:
-    build: ./Frontend
+    build:
+      context: ./Frontend
+      args:
+        - VITE_BACKEND_URL=${VITE_BACKEND_URL:-http://localhost:8000}
     ports:
       - "80:80"
     networks:

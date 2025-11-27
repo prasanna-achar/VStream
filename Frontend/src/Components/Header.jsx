@@ -41,7 +41,7 @@ function Header() {
                   className='flex gap-2'
                   to="/profile">
                   {
-                    profile.avatarUrl ? (
+                    profile?.avatarUrl ? (
                       <img src={profile.avatarUrl} alt="Profile" className="w-12 h-12 rounded-full" />
                     ) : (
                       <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" className="w-8 h-8 rounded-full" />
