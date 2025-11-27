@@ -21,13 +21,11 @@ spring:
               uri: http://localhost:8030
               predicates:
                 - Path=/video/**
+
           globalcors:
-            add-to-simple-url-handler-mapping: true
             cors-configurations:
-              "[/**]":
-                allowedOrigins:
-                  - ${CORS_ALLOWED_ORIGIN}
-                  - ${FRONTEND_LINK}
+              '[/**]':
+                allowedOrigins: ${FRONTEND_URL}
                 allowedMethods:
                   - GET
                   - POST
