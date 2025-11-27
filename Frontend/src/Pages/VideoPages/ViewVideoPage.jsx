@@ -82,9 +82,9 @@ function ViewVideoPage() {
             <h1 className='text-2xl text-gray-800 font-normal mb-6'>{currentVideo.title || "Title of the Video"}</h1>
 
             <div className='flex items-center gap-2 mb-2'>
-              {userProfile.firstName && userProfile.lastName && userProfile.avatarUrl && (
+              {userProfile?.firstName && userProfile?.lastName && userProfile?.avatarUrl && (
                 <>
-                  <img src={userProfile.avatarUrl} alt="Profile" className="w-8 h-8 rounded-full" />
+                  <img src={userProfile?.avatarUrl} alt="Profile" className="w-8 h-8 rounded-full" />
                   <p className='text-gray-700 text-sm'>{userProfile.firstName + " " + userProfile.lastName}</p>
                 </>
               )}
