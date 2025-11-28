@@ -38,6 +38,8 @@ spring:
                   - OPTIONS
                 allowedHeaders: "*"
                 allowCredentials: true
-
+  http:
+    codec:
+      max-in-memory-size: 100MB
 jwt:
   secret: ${JWT_SECRET_KEY}
