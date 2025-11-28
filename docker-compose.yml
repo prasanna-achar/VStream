@@ -43,6 +43,7 @@ services:
       - MAILTRAP_PROTOCOL=${MAILTRAP_PROTOCOL}
       - JWT_SECRET_KEY=${JWT_SECRET}
       - FRONTEND_URL=${FRONTEND_URL}
+      - RESEND_API_KEY=${RESEND_API_KEY}
     depends_on:
       rabbitmq:
         condition: service_healthy
