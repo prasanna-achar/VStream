@@ -12,15 +12,15 @@ spring:
             - id: auth-service
               uri: ${AUTH_SERVICE_URL:http://localhost:8010}
               predicates:
-                - Path=/auth/**
+                - Path=/api/v1/auth/**
             - id: profile-service
               uri: ${PROFILE_SERVICE_URL:http://localhost:8020}
               predicates:
-                - Path=/profile/**
+                - Path=/api/v1/profile/**
             - id: video-service
               uri: ${VIDEO_SERVICE_URL:http://localhost:8030}
               predicates:
-                - Path=/video/**
+                - Path=/api/v1/video/**
 
           globalcors:
             cors-configurations:

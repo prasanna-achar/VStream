@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 
-@RequestMapping("/video")
+@RequestMapping("/api/v1/video")
 @RestController
 public class UploadController {
 
