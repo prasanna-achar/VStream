@@ -8,6 +8,8 @@ spring:
     gateway:
       server:
         webflux:
+          codecs:
+            max-in-memory-size: 100MB
           routes:
             - id: auth-service
               uri: ${AUTH_SERVICE_URL:http://localhost:8010}
@@ -25,7 +27,9 @@ spring:
           globalcors:
             cors-configurations:
               '[/**]':
-                allowedOrigins: ${FRONTEND_URL}
+                allowedOrigins:
+                  - ${FRONTEND_URL}
+                  - http://localhost:5173
                 allowedMethods:
                   - GET
                   - POST

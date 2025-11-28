@@ -19,6 +19,7 @@ import com.nts.users.ResponseBody.APISuccessResponse;
 import com.nts.users.Service.Mails.MailBodyBuilder;
 import com.nts.users.Utils.BcryptUtils;
 import com.nts.users.Utils.JwtUtils;
+import com.nts.users.Utils.ResendMailUtils;
 import com.nts.users.Utils.TokenUtils;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
@@ -49,6 +50,9 @@ public class AuthService {
     @Autowired
     MailBodyBuilder mailBodyBuilder;
 
+
+    @Autowired
+    ResendMailUtils resendMailUtils;
 
     public APIResponseBody login(LoginUser body){
         if(body.getEmail().isEmpty() || ! body.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
@@ -81,8 +85,8 @@ public class AuthService {
         verifyAuthRepository.save(verifyAuth);
 
 
-        mailService.sendMail(user.getEmail(), "Verify your email", mailBodyBuilder.buildVerificationEmail(user.getUsername(), oneTimePassword));
-
+        //mailService.sendMail(user.getEmail(), "Verify your email", mailBodyBuilder.buildVerificationEmail(user.getUsername(), oneTimePassword));
+        resendMailUtils.sendMessage(user.getEmail(), "Verify your account", mailBodyBuilder.buildVerificationEmail(user.getUsername(), oneTimePassword));
         return new APISuccessResponse<>(true, HttpStatus.OK, "User created successfully, Verify to continue",new TokenSchema(token));
 
     }
@@ -147,7 +151,9 @@ public class AuthService {
 
 
         // Sending the password to the user
-        mailService.sendMail(savedUser.getEmail(), "Verify your email", mailBodyBuilder.buildVerificationEmail(savedUser.getUsername(), oneTimePassword));
+        //mailService.sendMail(savedUser.getEmail(), "Verify your email", mailBodyBuilder.buildVerificationEmail(savedUser.getUsername(), oneTimePassword));
+
+        resendMailUtils.sendMessage(savedUser.getEmail(), "Verify your account", mailBodyBuilder.buildVerificationEmail(savedUser.getUsername(), oneTimePassword));
 
         return new APISuccessResponse<>(true, HttpStatus.CREATED, "User created successfully, Verify to continue",new TokenSchema(token));
 //        return null;
@@ -238,8 +244,8 @@ public class AuthService {
 
         resetPasswordRepository.save(new ResetPassword(token, user, LocalDateTime.now().plusMinutes(20)));
 
-        mailService.sendMail(email,"Reset Password", mailBodyBuilder.buildResetPasswordEmail(user.getUsername(), token));
-
+        //mailService.sendMail(email,"Reset Password", mailBodyBuilder.buildResetPasswordEmail(user.getUsername(), token));
+        resendMailUtils.sendMessage(email, "reset password link", mailBodyBuilder.buildResetPasswordEmail(user.getUsername(), token));
         return new APISuccessResponse<>(HttpStatus.ACCEPTED,"Reset password link has been sent your email", null);
     }
     public APIResponseBody resetPassword(String token, String password){
@@ -269,8 +275,8 @@ public class AuthService {
         String OTP = TokenUtils.getOneTimePassword();
         verifyAuth.setPassword(BcryptUtils.hash(OTP));
         verifyAuthRepository.save(verifyAuth);
-        mailService.sendMail(user.getEmail(), "Verification email", mailBodyBuilder.buildVerificationEmail(user.getUsername(), OTP));
-
+        //mailService.sendMail(user.getEmail(), "Verification email", mailBodyBuilder.buildVerificationEmail(user.getUsername(), OTP));
+        resendMailUtils.sendMessage(user.getEmail(), "Verify your email", mailBodyBuilder.buildVerificationEmail(user.getUsername(), OTP));
 
 
         return new APISuccessResponse<>(HttpStatus.OK, "Otp has been sent to email", null);
