@@ -20,7 +20,7 @@ public class ResendMailUtils {
 
     public void sendMessage(String sendTo, String subject, String html){
         CreateEmailOptions mail = CreateEmailOptions.builder()
-                .from("Acme <onboarding@resend.dev>")
+                .from("noreply@vstreams.info <noreply@vstreams.info>")
                 .to(sendTo)
                 .subject(subject)
                 .html(html).build();
