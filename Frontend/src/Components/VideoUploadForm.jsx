@@ -5,7 +5,7 @@ import videoUploadSchema from '../TypeSchemas/VideoUploadSchema';
 import { useVideoStore } from '../store/VideoStore';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { Loader2, Upload, Image as ImageIcon, FileVideo } from 'lucide-react';
+import { Loader2, Upload, Image as ImageIcon, FileVideo, X } from 'lucide-react';
 
 function VideoUploadForm() {
 
@@ -113,119 +113,29 @@ function VideoUploadForm() {
             </div>
 
             {/* RIGHT SIDE: Media Upload */}
-            <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Upload className="text-blue-600" size={20} />
-                Media Files
-              </h3>
-
-              {/* Video Upload Zone */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Video File</label>
-                <div className="relative group">
-                  {videoPreview ? (
-                    <div className="relative rounded-xl overflow-hidden bg-black aspect-video">
-                      <video src={videoPreview} controls className="w-full h-full object-contain" />
-                      <button
-                        type="button"
-                        onClick={() => setVideoPreview(null)}
-                        className="absolute top-2 right-2 bg-black/50 text-white p-1 rounded-full hover:bg-red-500 transition-colors"
-                      >
-                        <Loader2 className="rotate-45" size={16} /> {/* Using Loader2 as X icon placeholder if X not imported, but X is better. Let's stick to simple UI for now */}
-                      </button>
-                    </div>
-                  ) : (
-                    <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 hover:border-blue-400 transition-all group-hover:border-blue-400">
-                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                          <Upload size={24} />
-                        </div>
-                        <p className="mb-1 text-sm text-gray-500"><span className="font-semibold text-blue-600">Click to upload</span> or drag and drop</p>
-                        <p className="text-xs text-gray-400">MP4, WebM or Ogg (MAX. 100MB)</p>
-                      </div>
-                      <input
-                        type="file"
-                        accept="video/*"
-                        className="hidden"
-                        {...register("video")}
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) setVideoPreview(URL.createObjectURL(file));
-                        }}
-                      />
-                    </label>
-                  )}
-                  {errors.video && <p className="text-red-500 text-xs mt-1">{errors.video.message}</p>}
-                </div>
-              </div>
-
-              {/* Thumbnail Upload Zone */}
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700">Thumbnail</label>
-                <div className="relative group">
-                  {thumbnailPreview ? (
-                    <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-video">
-                      <img src={thumbnailPreview} className="w-full h-full object-cover" alt="Thumbnail preview" />
-                      <button
-                        type="button"
-                        onClick={() => setThumbnailPreview(null)}
-                        className="absolute top-2 right-2 bg-black/50 text-white p-1 rounded-full hover:bg-red-500 transition-colors"
-                      >
-                        <div className="w-4 h-4 bg-white rounded-full"></div> {/* Placeholder for close */}
-                      </button>
-                    </div>
-                  ) : (
-                    <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 hover:border-blue-400 transition-all group-hover:border-blue-400">
-                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        <div className="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                          <ImageIcon size={24} />
-                        </div>
-                        <p className="mb-1 text-sm text-gray-500"><span className="font-semibold text-purple-600">Click to upload</span> thumbnail</p>
-                        <p className="text-xs text-gray-400">PNG, JPG or GIF</p>
-                      </div>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        {...register("thumbnail")}
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) setThumbnailPreview(URL.createObjectURL(file));
-                        }}
-                      />
-                    </label>
-                  )}
-                  {errors.thumbnail && <p className="text-red-500 text-xs mt-1">{errors.thumbnail.message}</p>}
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="px-8 py-6 bg-gray-50 border-t border-gray-100 flex justify-end">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className={`
+            <div className="px-8 py-6 bg-gray-50 border-t border-gray-100 flex justify-end">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`
                 px-8 py-3 rounded-xl font-semibold text-white shadow-lg shadow-blue-600/20 transition-all transform active:scale-95
                 ${isLoading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 hover:-translate-y-0.5"}
                 flex items-center gap-2
               `}
-            >
-              {!isLoading ? (
-                <>
-                  <Upload size={20} />
-                  Upload Video
-                </>
-              ) : (
-                <>
-                  <Loader2 className='animate-spin' size={20} />
-                  Uploading...
-                </>
-              )}
-            </button>
-          </div>
+              >
+                {!isLoading ? (
+                  <>
+                    <Upload size={20} />
+                    Upload Video
+                  </>
+                ) : (
+                  <>
+                    <Loader2 className='animate-spin' size={20} />
+                    Uploading...
+                  </>
+                )}
+              </button>
+            </div>
         </form>
       </div>
     </div>
