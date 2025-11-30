@@ -19,7 +19,7 @@ function HomePage() {
             Video Platform • HLS Streaming
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-105 duration-300 ">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight hover:shadow-blue-500 hover:text-shadow-lg transition-all hover:scale-101 duration-300 ">
             VStream it, <span className="text-blue-500">you share it</span>.
           </h2>
 
@@ -32,13 +32,13 @@ function HomePage() {
               (<div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                 <Link
                   to="/videos/upload"
-                  className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-white transition-all hover:scale-99 duration-300 font-semibold text-sm md:text-base text-center"
+                  className="px-6 py-3 rounded-lg bg-blue-600 hover:border-blue-600 hover:border hover:shadow-blue-500 hover:shadow-lg hover:bg-white transition-all hover:scale-101 duration-300 font-semibold text-sm md:text-base text-center"
                 >
                   Upload a video
                 </Link>
                 <Link
                   to="/videos"
-                  className="px-6 py-3 hover:bg-blue-600 hover:text-white transition-all hover:scale-99 duration-300 rounded-lg border border-zinc-600 hover:border-white text-sm md:text-base text-center"
+                  className="px-6 py-3 hover:bg-blue-600 hover:text-white transition-all hover:scale-101 duration-300 rounded-lg border border-zinc-600 hover:border-white text-sm md:text-base text-center"
                 >
                   Explore videos
                 </Link>
@@ -53,7 +53,7 @@ function HomePage() {
           className="mt-16 max-w-5xl w-full px-4 grid gap-6 md:grid-cols-3"
         >
           <div
-            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-105 duration-300 border border-black-800 rounded-xl p-5">
+            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-black-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Chunk Based Streaming</h3>
             <p className="text-zinc-400 text-sm">
               Chunked uploads and async processing so your videos don&apos;t block you.
@@ -61,7 +61,7 @@ function HomePage() {
           </div>
 
           <div
-            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-105 duration-300 border border-zinc-800 rounded-xl p-5">
+            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Adaptive streaming</h3>
             <p className="text-zinc-400 text-sm">
               HLS playlists for 480p, 720p and more, optimised for any network.
@@ -69,7 +69,7 @@ function HomePage() {
           </div>
 
           <div
-            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-105 duration-300 border border-zinc-800 rounded-xl p-5">
+            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Creator focused</h3>
             <p className="text-zinc-400 text-sm">
               Profiles, video details and status so you always know what&apos;s happening.
