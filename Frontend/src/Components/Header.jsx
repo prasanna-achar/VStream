@@ -37,9 +37,7 @@ function Header() {
         <ul className="hidden md:flex items-center space-x-6 text-gray-700 font-medium">
           {AuthUser ? (
             <>
-              <li className="cursor-pointer hover:text-blue-600 transition">
-                <Link to="/videos">Explore</Link>
-              </li>
+
               <li className="cursor-pointer hover:text-blue-600 transition">
                 <Link to="/videos">Explore</Link>
               </li>
