@@ -10,14 +10,17 @@ function Footer() {
 
                     {/* Brand Section */}
                     <div className="col-span-1 md:col-span-1">
-                        <div className="flex items-center space-x-2 mb-4">
+                        <a
+                            href="https://github.com/prasanna-achar/VStream"
+                            target="_blank"
+                            className="flex items-center space-x-2 mb-4">
                             <img
                                 src="/VStream Logo in Blue and Gray.png"
                                 alt="Logo"
                                 className="w-8 h-8 rounded-2xl"
                             />
                             <h2 className="text-xl font-bold text-blue-600">VStream</h2>
-                        </div>
+                        </a>
                         <p className="text-gray-500 text-sm leading-relaxed">
                             Share your stories with the world. The best platform for video content creators and viewers.
                         </p>
@@ -44,13 +47,13 @@ function Footer() {
                         <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Support</h3>
                         <ul className="space-y-3">
                             <li>
-                                <Link to="#" className="text-gray-500 hover:text-blue-600 transition-colors text-sm">Help Center</Link>
+                                <Link to="/" className="text-gray-500 hover:text-blue-600 transition-colors text-sm">Help Center</Link>
                             </li>
                             <li>
-                                <Link to="#" className="text-gray-500 hover:text-blue-600 transition-colors text-sm">Terms of Service</Link>
+                                <Link to="/" className="text-gray-500 hover:text-blue-600 transition-colors text-sm">Terms of Service</Link>
                             </li>
                             <li>
-                                <Link to="#" className="text-gray-500 hover:text-blue-600 transition-colors text-sm">Privacy Policy</Link>
+                                <Link to="/" className="text-gray-500 hover:text-blue-600 transition-colors text-sm">Privacy Policy</Link>
                             </li>
                         </ul>
                     </div>
@@ -59,16 +62,16 @@ function Footer() {
                     <div>
                         <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Connect</h3>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
+                            <a href="https://github.com/prasanna-achar/VStream" target="_blank" className="text-gray-400 hover:text-blue-600 transition-colors">
                                 <Github size={20} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                            <a href="/" className="text-gray-400 hover:text-blue-400 transition-colors">
                                 <Twitter size={20} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-blue-700 transition-colors">
+                            <a href="/" className="text-gray-400 hover:text-blue-700 transition-colors">
                                 <Linkedin size={20} />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-red-500 transition-colors">
+                            <a href="/" className="text-gray-400 hover:text-red-500 transition-colors">
                                 <Mail size={20} />
                             </a>
                         </div>

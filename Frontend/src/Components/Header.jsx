@@ -25,7 +25,8 @@ function Header() {
 
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
-          <a href="https://github.com/prasanna-achar/VStream" target="_blank">
+          <a href="https://github.com/prasanna-achar/VStream"
+            className='flex items-center space-x-2' target="_blank">
             <img
               src="/VStream Logo in Blue and Gray.png"
               alt="Logo"
