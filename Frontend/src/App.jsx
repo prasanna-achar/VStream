@@ -43,7 +43,7 @@ function App() {
   }
   else {
     return (
-      <div className='w-full h-screen'>
+      <div className='w-full h-screen bg-gray-100'>
         <Toaster position='top-right' />
         <Routes>
 
