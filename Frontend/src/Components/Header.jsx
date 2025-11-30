@@ -25,12 +25,14 @@ function Header() {
 
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
-          <img
-            src="/VStream Logo in Blue and Gray.png"
-            alt="Logo"
-            className="w-8 h-8 rounded-2xl"
-          />
-          <h1 className="text-2xl font-bold text-blue-600">VStream</h1>
+          <a href="https://github.com/prasanna-achar/VStream" target="_blank">
+            <img
+              src="/VStream Logo in Blue and Gray.png"
+              alt="Logo"
+              className="w-8 h-8 rounded-2xl"
+            />
+            <h1 className="text-2xl font-bold text-blue-600">VStream</h1>
+          </a>
         </div>
 
         {/* Desktop Menu Section */}

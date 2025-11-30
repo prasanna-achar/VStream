@@ -4,10 +4,10 @@ import { Outlet } from 'react-router-dom'
 
 function Layout({ children }) {
   return (
-    <div className='w-full min-h-screen'>
+    <div className='w-screen h-screen'>
       <Header />
       {children || <Outlet />}
-    </div>
+    </div >
   )
 }
 

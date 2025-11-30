@@ -1,21 +1,22 @@
 import React from 'react'
 import authStore from '../store/AuthStore';
 import { Link } from 'react-router-dom';
+import Footer from '../Components/Footer';
 
 function HomePage() {
 
-  const {AuthUser, getme} = authStore();
+  const { AuthUser, getme } = authStore();
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col">
       {/* Navbar */}
-     
+
 
       {/* Hero */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-10">
         <section className="max-w-3xl text-center">
           <p className="text-xs uppercase tracking-[.2em] text-zinc-400 mb-3">
-            Video Platform • HLS Streaming 
+            Video Platform • HLS Streaming
           </p>
 
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
@@ -23,26 +24,26 @@ function HomePage() {
           </h2>
 
           <p className="text-black-300 mt-4 text-sm md:text-base">
-           We are here to share your video to public and watch it from anywhere
+            We are here to share your video to public and watch it from anywhere
           </p>
 
           {
-            AuthUser?
-            (<div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link
-              to="/videos/upload"
-              className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold text-sm md:text-base text-center"
-            >
-              Upload a video
-            </Link>
-            <Link
-              to="/videos"
-              className="px-6 py-3 rounded-lg border border-zinc-600 hover:border-white text-sm md:text-base text-center"
-            >
-              Explore videos
-            </Link>
-          </div>) :
-          (<></>)
+            AuthUser ?
+              (<div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <Link
+                  to="/videos/upload"
+                  className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold text-sm md:text-base text-center"
+                >
+                  Upload a video
+                </Link>
+                <Link
+                  to="/videos"
+                  className="px-6 py-3 rounded-lg border border-zinc-600 hover:border-white text-sm md:text-base text-center"
+                >
+                  Explore videos
+                </Link>
+              </div>) :
+              (<></>)
           }
         </section>
 
@@ -89,11 +90,9 @@ function HomePage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-4 text-center text-xs text-zinc-500 border-t border-zinc-900">
-        © {new Date().getFullYear()} VStream. Built by you, streamed for everyone.
-      </footer>
+      <Footer />
     </div>
   );
 }
-  
+
 export default HomePage
