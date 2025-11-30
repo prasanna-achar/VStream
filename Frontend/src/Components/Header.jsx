@@ -45,13 +45,7 @@ function Header() {
                 <Link to="/videos">Explore</Link>
               </li>
 
-              <li className="cursor-pointer hover:text-blue-600 transition">
-                <Link to="/videos/my-videos">My Videos</Link>
-              </li>
 
-              <li className="cursor-pointer hover:text-blue-600 transition">
-                <Link to="/videos/upload">Upload</Link>
-              </li>
 
 
               {/* Profile Dropdown */}
@@ -150,9 +144,6 @@ function Header() {
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg py-4 px-5 flex flex-col space-y-4">
           {AuthUser ? (
             <>
-              <Link to="/videos" className="text-gray-700 hover:text-blue-600 font-medium" onClick={toggleMenu}>
-                Explore
-              </Link>
               <Link to="/profile" className="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-medium" onClick={toggleMenu}>
                 <span>Profile</span>
                 {
@@ -163,6 +154,19 @@ function Header() {
                   )
                 }
               </Link>
+              <Link to="/videos" className="text-gray-700 hover:text-blue-600 font-medium" onClick={toggleMenu}>
+                Explore
+              </Link>
+
+              <Link to="/videos/my-videos" className="text-gray-700 hover:text-blue-600 font-medium" onClick={toggleMenu}>
+                My Videos
+              </Link>
+
+              <Link to="/videos/upload" className="text-gray-700 hover:text-blue-600 font-medium" onClick={toggleMenu}>
+                Upload
+              </Link>
+
+
             </>
           ) : (
             <>
