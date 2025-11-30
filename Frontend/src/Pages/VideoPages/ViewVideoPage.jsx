@@ -53,7 +53,7 @@ function ViewVideoPage() {
   }
 
   return (
-    <div className='w-full min-h-screen bg-white  '>
+    <div className='w-full min-h-screen   '>
 
 
 

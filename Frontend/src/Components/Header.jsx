@@ -20,7 +20,7 @@ function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <nav className="bg-white border-b border-gray-200 shadow-sm relative z-50">
+    <nav className="bg-gray-50 border-b border-gray-200 shadow-sm relative z-50">
       <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
 
         {/* Logo Section */}

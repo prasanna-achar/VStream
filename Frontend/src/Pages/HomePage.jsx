@@ -8,7 +8,7 @@ function HomePage() {
   const { AuthUser, getme } = authStore();
 
   return (
-    <div className="min-h-screen bg-white text-black flex flex-col">
+    <div className="min-h-screen  text-black flex flex-col">
       {/* Navbar */}
 
 
