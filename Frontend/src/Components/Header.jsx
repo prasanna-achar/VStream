@@ -20,7 +20,7 @@ function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <nav className="bg-gray-50 border-b border-gray-200 shadow-sm relative z-50">
+    <nav className="bg-gray-100 border-b border-gray-200 shadow-sm relative z-50">
       <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
 
         {/* Logo Section */}
@@ -44,6 +44,15 @@ function Header() {
               <li className="cursor-pointer hover:text-blue-600 transition">
                 <Link to="/videos">Explore</Link>
               </li>
+
+              <li className="cursor-pointer hover:text-blue-600 transition">
+                <Link to="/videos/my-videos">My Videos</Link>
+              </li>
+
+              <li className="cursor-pointer hover:text-blue-600 transition">
+                <Link to="/videos/upload">Upload</Link>
+              </li>
+
 
               {/* Profile Dropdown */}
               <li className="relative">
