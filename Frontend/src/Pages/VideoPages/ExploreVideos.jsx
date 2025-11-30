@@ -20,7 +20,7 @@ function ExploreVideos() {
   }
   else {
     return (
-      <div className='w-full min-h-screen bg-gray-50'>
+      <div className='w-full min-h-screen bg-gray-100'>
         {/* Video List Section */}
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
           <h2 className='text-2xl font-bold text-gray-900 mb-6'>Explore Videos</h2>
@@ -30,7 +30,7 @@ function ExploreVideos() {
               <Link
                 to={`/videos/${video.token}`}
                 key={video._id || video.token}
-                className='group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col'
+                className='group bg-gray-50 rounded-xl hover:scale-99 hover:border hover:border-blue-500 duration-300 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col'
               >
                 {/* Thumbnail Container */}
                 <div className='aspect-video bg-gray-900 relative overflow-hidden'>
