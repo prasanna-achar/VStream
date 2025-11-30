@@ -14,7 +14,7 @@ function HomePage() {
 
       {/* Hero */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-10">
-        <section className="max-w-3xl text-center">
+        <section className="max-w-3xl text-center h-[calc(100vh-10rem)]">
           <p className="text-xs uppercase tracking-[.2em] text-zinc-400 mb-3">
             Video Platform • HLS Streaming
           </p>
@@ -52,21 +52,24 @@ function HomePage() {
           id="features"
           className="mt-16 max-w-5xl w-full px-4 grid gap-6 md:grid-cols-3"
         >
-          <div className="bg-white border border-black-800 rounded-xl p-5">
+          <div
+            className="bg-white hover:shadow-blue-500 hover:shadow-sm transition-all hover:scale-105 duration-300 border border-black-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Chunk Based Streaming</h3>
             <p className="text-zinc-400 text-sm">
               Chunked uploads and async processing so your videos don&apos;t block you.
             </p>
           </div>
 
-          <div className="bg-white border border-zinc-800 rounded-xl p-5">
+          <div
+            className="bg-white hover:shadow-blue-500 hover:shadow-sm transition-all hover:scale-105 duration-300 border border-zinc-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Adaptive streaming</h3>
             <p className="text-zinc-400 text-sm">
               HLS playlists for 480p, 720p and more, optimised for any network.
             </p>
           </div>
 
-          <div className="bg-white border border-zinc-800 rounded-xl p-5">
+          <div
+            className="bg-white hover:shadow-blue-500 hover:shadow-sm transition-all hover:scale-105 duration-300 border border-zinc-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Creator focused</h3>
             <p className="text-zinc-400 text-sm">
               Profiles, video details and status so you always know what&apos;s happening.
