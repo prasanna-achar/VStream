@@ -281,7 +281,5 @@ public class AuthService {
 
         return new APISuccessResponse<>(HttpStatus.OK, "Otp has been sent to email", null);
     }
-
-
-
+    
 }
