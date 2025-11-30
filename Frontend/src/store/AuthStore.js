@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const authStore = create((set, state) => ({
     AuthUser: null,
     isLoading: false,
+    isCheckingAuth: true,
     verificationCode: null,
     login: async (data) => {
         set({ isLoading: true })
@@ -107,7 +108,7 @@ const authStore = create((set, state) => ({
         }
     },
     getme: async () => {
-        set({ isLoading: true })
+        set({ isCheckingAuth: true })
         try {
 
             const response = await axiosInstance.get("/auth/me")
@@ -127,7 +128,7 @@ const authStore = create((set, state) => ({
             throw error;
         }
         finally {
-            set({ isLoading: false })
+            set({ isCheckingAuth: false })
         }
     },
     resetPassword: async (data, token) => {

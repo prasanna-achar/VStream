@@ -22,17 +22,7 @@ function ExploreVideos() {
     return (
       <div className='w-full min-h-screen bg-white'>
         {/* Header Section */}
-        <div className='bg-gray-200 px-8 py-4 flex justify-between items-center'>
-          <h3 className='text-xl text-gray-800 font-medium'>Explore Videos</h3>
-          <div className='flex items-center gap-6'>
-            <Link to="/videos/my-videos" className='text-gray-700 hover:text-black font-medium transition-colors'>
-              My Videos
-            </Link>
-            <Link to="/videos/upload" className='bg-teal-300 text-black px-6 py-2 rounded-full font-medium hover:bg-teal-400 transition-colors'>
-              Upload Video +
-            </Link>
-          </div>
-        </div>
+
 
         {/* Video List Section */}
         <div className='p-8 flex flex-col gap-4'>

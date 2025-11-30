@@ -66,12 +66,7 @@ export default function VideoPlayer({ sources }) {
       <select
         value={quality}
         onChange={(e) => setQuality(e.target.value)}
-        className="absolute top-4 right-4 z-50 bg-black/70 text-white border border-white/20 backdrop-blur-sm cursor-pointer hover:bg-black/90 transition-colors"
-        style={{
-          padding: "4px 8px",
-          borderRadius: "4px",
-          outline: "none"
-        }}
+        className="absolute top-4 right-4 z-50 bg-black/70 text-white border border-white/20 backdrop-blur-sm cursor-pointer hover:bg-black/90 transition-colors px-2 py-1 rounded outline-none"
       >
         {Object.keys(sources)
           .filter((q) => sources[q])

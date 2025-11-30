@@ -2,11 +2,11 @@ import React from 'react'
 import Header from '../Components/Header'
 import { Outlet } from 'react-router-dom'
 
-function Layout({children}) {
+function Layout({ children }) {
   return (
-    <div className='w-screen h-screen'>
-        <Header / >
-        {children}
+    <div className='w-full min-h-screen'>
+      <Header />
+      {children || <Outlet />}
     </div>
   )
 }

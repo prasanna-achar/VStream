@@ -23,18 +23,7 @@ function MyVideos() {
             <div className='w-full min-h-screen bg-white'>
 
                 {/* Header Section */}
-                <div className='bg-gray-200 px-8 py-4 flex justify-between items-center'>
 
-                    <div className='flex items-center gap-2'>
-                        <Link to="/videos">
-                            <ArrowLeft size={24} />
-                        </Link>
-                        <h3 className='text-xl text-gray-800 font-medium'>My Videos</h3>
-                    </div>
-                    <Link to="/videos/upload" className='bg-white text-gray-800 px-6 py-2 rounded-full font-medium hover:bg-gray-50 border border-gray-300 transition-colors shadow-sm'>
-                        Upload Video +
-                    </Link>
-                </div>
 
                 {/* Video List Section */}
                 <div className='p-8 flex flex-col gap-4'>

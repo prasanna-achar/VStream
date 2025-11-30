@@ -54,17 +54,7 @@ function ViewVideoPage() {
 
   return (
     <div className='w-full min-h-screen bg-white  '>
-      <div className="flex items-center justify-between bg-gray-200 px-6 p-2 mb-4">
-        <div className='flex items-center gap-2'>
-          <Link to="/videos">
-            <ArrowLeft size={24} />
-          </Link>
-          <h3 className='text-xl font-medium '>{currentVideo.title}</h3>
-        </div>
-        <Link to="/videos/upload" className='bg-white text-gray-800 px-6 py-2 rounded-full font-medium hover:bg-gray-50 border border-gray-300 transition-colors shadow-sm'>
-          Upload Video +
-        </Link>
-      </div>
+
 
 
 

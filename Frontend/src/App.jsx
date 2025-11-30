@@ -20,7 +20,7 @@ import EditProfilePage from './Pages/ProfilePages/EditProfilePage'
 function App() {
 
 
-  const { AuthUser, getme } = authStore();
+  const { AuthUser, getme, isCheckingAuth } = authStore();
 
 
 
@@ -36,7 +36,7 @@ function App() {
   }
     , [])
   console.log(AuthUser)
-  if (isLoading) {
+  if (isCheckingAuth) {
     return (<div className='w-screen h-screen flex items-center justify-center'>
       <Loader2 className='size-12 animate-spin' />
     </div>)
@@ -50,20 +50,20 @@ function App() {
           <Route path='/' element={<Layout ><HomePage /></Layout>} />
 
 
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<SignupPage />} />
-          <Route path="/verify/:token" element={<OtpVerificationPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
+          <Route path="/login" element={!AuthUser ? <LoginPage /> : <Navigate to="/" />} />
+          <Route path="/register" element={!AuthUser ? <SignupPage /> : <Navigate to="/" />} />
+          <Route path="/verify/:token" element={!AuthUser ? <OtpVerificationPage /> : <Navigate to="/" />} />
+          <Route path="/forgot-password" element={!AuthUser ? <ForgotPasswordPage /> : <Navigate to="/" />} />
+          <Route path="/reset-password/:token" element={!AuthUser ? <ResetPasswordPage /> : <Navigate to="/" />} />
 
 
-          <Route path="/videos" element={AuthUser ? <ExploreVideos /> : <Navigate to="/login" />} />
-          <Route path="/videos/:token" element={AuthUser ? <ViewVideoPage /> : <Navigate to="/login" />} />
+          <Route path="/videos" element={AuthUser ? <Layout><ExploreVideos /></Layout> : <Navigate to="/login" />} />
+          <Route path="/videos/:token" element={AuthUser ? <Layout><ViewVideoPage /></Layout> : <Navigate to="/login" />} />
           <Route path="/videos/upload" element={AuthUser ? <VideoUploadPages /> : <Navigate to="/login" />} />
-          <Route path="/videos/my-videos" element={AuthUser ? <MyVideos /> : <Navigate to="/login" />} />
+          <Route path="/videos/my-videos" element={AuthUser ? <Layout><MyVideos /></Layout> : <Navigate to="/login" />} />
 
-          <Route path="/profile" element={AuthUser ? <ProfilePage /> : <Navigate to="/login" />} />
-          <Route path="/profile/edit" element={AuthUser ? <EditProfilePage /> : <Navigate to="/login" />} />
+          <Route path="/profile" element={AuthUser ? <Layout><ProfilePage /></Layout> : <Navigate to="/login" />} />
+          <Route path="/profile/edit" element={AuthUser ? <Layout><EditProfilePage /></Layout> : <Navigate to="/login" />} />
 
         </Routes>
       </div>
