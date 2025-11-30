@@ -20,7 +20,7 @@ VStream is built using a robust technology stack that combines a high-performanc
 *   **Framework**: Spring Boot 3.5.7
 *   **Gateway**: Spring Cloud Gateway (WebFlux)
 *   **Database**: PostgreSQL
-*   **Security**: Spring Security, JWT, Bcrypt
+*   **Security**: JWT, Bcrypt
 *   **Build Tool**: Maven
 
 ---
