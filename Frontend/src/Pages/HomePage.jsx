@@ -50,10 +50,10 @@ function HomePage() {
         {/* Features */}
         <section
           id="features"
-          className="mt-16 max-w-5xl w-full px-4 grid gap-6 md:grid-cols-3"
+          className="bg-gray-100 mt-16 max-w-5xl w-full px-4 grid gap-6 md:grid-cols-3"
         >
           <div
-            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-black-800 rounded-xl p-5">
+            className="bg-gray-50 hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-black-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Chunk Based Streaming</h3>
             <p className="text-zinc-400 text-sm">
               Chunked uploads and async processing so your videos don&apos;t block you.
@@ -61,7 +61,7 @@ function HomePage() {
           </div>
 
           <div
-            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
+            className="bg-gray-50 hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Adaptive streaming</h3>
             <p className="text-zinc-400 text-sm">
               HLS playlists for 480p, 720p and more, optimised for any network.
@@ -69,7 +69,7 @@ function HomePage() {
           </div>
 
           <div
-            className="bg-white hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
+            className="bg-gray-50 hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
             <h3 className="font-semibold text-lg mb-2">Creator focused</h3>
             <p className="text-zinc-400 text-sm">
               Profiles, video details and status so you always know what&apos;s happening.
@@ -80,7 +80,7 @@ function HomePage() {
         {/* How it works */}
         <section
           id="how-it-works"
-          className="mt-16 max-w-3xl w-full px-4 text-center"
+          className="bg-gray-100 mt-16 max-w-3xl w-full px-4 text-center"
         >
           <h3 className="text-xl font-semibold mb-3">How VStream works</h3>
           <ol className="text-sm text-zinc-300 space-y-2 text-left md:text-center">
