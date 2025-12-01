@@ -121,7 +121,7 @@ public class AuthService {
 
         // checking email exists or not
         if(authRepository.existsByEmail(body.getEmail())){
-            return new APIFailResponse(HttpStatus.NOT_ACCEPTABLE, "Not a valid Email");
+            return new APIFailResponse(HttpStatus.NOT_ACCEPTABLE, "User already Exists with this email");
         }
 
 
