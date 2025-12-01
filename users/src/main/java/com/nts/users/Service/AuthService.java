@@ -55,7 +55,8 @@ public class AuthService {
     ResendMailUtils resendMailUtils;
 
     public APIResponseBody login(LoginUser body){
-        if(body.getEmail().isEmpty() || ! body.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
+        if(body.getEmail().isEmpty() || ! body.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+            System.out.println(body.getEmail());
             return new APIFailResponse(HttpStatus.NOT_ACCEPTABLE, "Not a valid Email");
         }
         if(!authRepository.existsByEmail(body.getEmail())){
@@ -94,7 +95,9 @@ public class AuthService {
 
 
         // checking email is empty
-        if(body.getEmail().isEmpty() || ! body.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")){
+        // mdfazalbarh@gmail.com
+        if(body.getEmail().isEmpty() || !body.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+            System.out.println(body.getEmail());
             return new APIFailResponse(HttpStatus.NOT_ACCEPTABLE, "Not a valid Email");
         }
 
