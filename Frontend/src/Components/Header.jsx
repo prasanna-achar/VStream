@@ -11,7 +11,6 @@ function Header() {
 
   useEffect(() => {
     getProfile()
-    console.log(profile)
   }, [])
 
   useEffect(() => {

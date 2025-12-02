@@ -35,7 +35,6 @@ function EditProfilePage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(formData);
 
         saveProfile(formData)
             .then(() => navigate('/profile'))

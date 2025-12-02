@@ -27,7 +27,6 @@ export default function VideoPlayer({ sources }) {
         },
       });
     }
-    console.log(playerRef.current)
 
 
 

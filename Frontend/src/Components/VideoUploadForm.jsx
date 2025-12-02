@@ -28,7 +28,7 @@ function VideoUploadForm() {
     }
   })
 
-  const MAX_VIDEO_SIZE = 100 * 1024 * 1024;
+  const MAX_VIDEO_SIZE = 5 * 100 * 1024 * 1024;
 
   const onSubmit = (data) => {
     const videoFile = data.video[0];

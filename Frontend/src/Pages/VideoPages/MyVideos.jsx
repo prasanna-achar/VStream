@@ -8,7 +8,6 @@ function MyVideos() {
 
     useEffect(() => {
         getMyVideos().then()
-        console.log(videos)
     }, [])
 
     if (isLoading) {

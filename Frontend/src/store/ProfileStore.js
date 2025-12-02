@@ -9,7 +9,6 @@ const useProfileStore = create((set) => ({
     saveProfile: async (data) => {
         set({ isLoading: true })
         try {
-            console.log(data);
 
             const res = await axiosInstance.post("/profile/save", data);
             if (res.data.status >= 300) {
@@ -34,7 +33,6 @@ const useProfileStore = create((set) => ({
             set({ profile: res.data.data })
         } catch (error) {
             console.log(error)
-            toast.error(error.message);
         } finally {
             set({ isLoading: false })
         }
@@ -54,7 +52,6 @@ const useProfileStore = create((set) => ({
             set({ profile: res.data.data })
         } catch (error) {
             console.log(error)
-            toast.error(error.message);
         } finally {
             set({ isLoading: false })
         }
@@ -69,7 +66,6 @@ const useProfileStore = create((set) => ({
             set({ userProfile: res.data.data })
         } catch (error) {
             console.log(error)
-            toast.error(error.message);
         } finally {
             set({ isLoading: false })
         }
