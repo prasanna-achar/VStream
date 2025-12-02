@@ -56,7 +56,7 @@ function MyVideos() {
                                         ) : (
                                             <span className='px-2 py-1 bg-yellow-500/90 text-white text-xs font-bold rounded shadow-sm backdrop-blur-sm flex items-center gap-1'>
                                                 <Loader2 className='size-3 animate-spin' />
-                                                PROCESSING
+                                                {video.videoUploadingStatus}
                                             </span>
                                         )}
                                     </div>
