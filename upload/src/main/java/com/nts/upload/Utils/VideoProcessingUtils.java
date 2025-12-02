@@ -46,7 +46,7 @@ public final class VideoProcessingUtils {
                             "-profile:v", "baseline",
                             "-level", "3.0",
                             "-start_number", "0",
-                            "-hls_time", "2",
+                            "-hls_time", "8",
                             "-hls_list_size", "0",
                             "-hls_segment_filename", variantDir + "/segment%d.ts",
                             "-f", "hls"
