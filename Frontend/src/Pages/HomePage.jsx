@@ -2,13 +2,24 @@ import React from 'react'
 import authStore from '../store/AuthStore';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer';
+import FeatureSpotlight, { FeatureCard } from '../Components/FeatureSpotlight';
+import { Zap, Layers, User } from 'lucide-react';
+import { motion } from 'framer-motion';
+import useMousePosition from '../utils/useMousePosition';
 
 function HomePage() {
 
   const { AuthUser, getme } = authStore();
+  const { x, y } = useMousePosition();
 
   return (
-    <div className="min-h-screen bg-gray-100 text-black flex flex-col">
+    <motion.main
+      className="min-h-screen bg-gray-100 text-black flex flex-col relative overflow-hidden"
+      style={{
+        background: `radial-gradient(300px circle at ${x}px ${y}px, rgba(27, 181, 241, 1), transparent 80%), rgb(243 244 246)`,
+
+      }}
+    >
       {/* Navbar */}
 
 
@@ -50,31 +61,23 @@ function HomePage() {
         {/* Features */}
         <section
           id="features"
-          className="bg-gray-100 mt-16 max-w-5xl w-full px-4 grid gap-6 md:grid-cols-3"
+          className="mt-16 max-w-5xl w-full px-4 grid grid-cols-1 md:grid-cols-3 gap-4"
         >
-          <div
-            className="bg-gray-50 hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-black-800 rounded-xl p-5">
-            <h3 className="font-semibold text-lg mb-2">Chunk Based Streaming</h3>
-            <p className="text-zinc-400 text-sm">
-              Chunked uploads and async processing so your videos don&apos;t block you.
-            </p>
-          </div>
-
-          <div
-            className="bg-gray-50 hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
-            <h3 className="font-semibold text-lg mb-2">Adaptive streaming</h3>
-            <p className="text-zinc-400 text-sm">
-              HLS playlists for 480p, 720p and more, optimised for any network.
-            </p>
-          </div>
-
-          <div
-            className="bg-gray-50 hover:shadow-blue-500 hover:shadow-lg transition-all hover:scale-101 duration-300 border border-zinc-800 rounded-xl p-5">
-            <h3 className="font-semibold text-lg mb-2">Creator focused</h3>
-            <p className="text-zinc-400 text-sm">
-              Profiles, video details and status so you always know what&apos;s happening.
-            </p>
-          </div>
+          <FeatureCard
+            icon={Zap}
+            title="Chunk Based Streaming"
+            description="Chunked uploads and async processing so your videos don't block you."
+          />
+          <FeatureCard
+            icon={Layers}
+            title="Adaptive streaming"
+            description="HLS playlists for 480p, 720p and more, optimised for any network."
+          />
+          <FeatureCard
+            icon={User}
+            title="Creator focused"
+            description="Profiles, video details and status so you always know what's happening."
+          />
         </section>
 
         {/* How it works */}
@@ -94,7 +97,7 @@ function HomePage() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </motion.main>
   );
 }
 
